@@ -3,7 +3,7 @@ version: '3.9'
 services:
   phppgadmin:
     restart: always
-    image: TianaNanta/phppgadmin:latest
+    image: tianananta/phppgadmin:latest
     ports:
     - "80:80"
     - "443:443"
