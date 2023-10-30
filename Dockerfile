@@ -9,7 +9,7 @@ LABEL maintainer="TianaNanta <andrianjakananta@gmail.com>" \
 
 ADD ./assets ${DOCKAGE_ETC_DIR}
 
-RUN apk update && apk upgrade -y --no-cache \
+RUN apk update && apk upgrade --no-cache \
     && apk --no-cache --update add postgresql-client \
     && apk --no-cache --update add php7.2-pgsql postgresql \
     && ${DOCKAGE_ETC_DIR}/buildtime/install \
