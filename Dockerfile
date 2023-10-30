@@ -9,7 +9,9 @@ LABEL maintainer="TianaNanta <andrianjakananta@gmail.com>" \
 
 ADD ./assets ${DOCKAGE_ETC_DIR}
 
-RUN apk --no-cache --update add php5-pgsql postgresql \
+RUN apk update && apk full-upgrade -y --no-cache \
+    && apk --no-cache --update add postgresql-client \
+    && apk --no-cache --update add php7.2-pgsql postgresql \
     && ${DOCKAGE_ETC_DIR}/buildtime/install \
     && cp -ar ${DOCKAGE_ETC_DIR}/etc/* /etc \
     && rm -rf /var/cache/apk/* ${DOCKAGE_ETC_DIR}/etc ${DOCKAGE_ETC_DIR}/buildtime
